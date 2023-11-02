@@ -5,7 +5,7 @@
     "main": "index.ts",
     "scripts": {
         "go": "nodemon --ignore JsonFiles/",
-        "pretty": "prettier --config .prettierrc '*.ts' 'JsonFiles/*.json' --write"
+        "pretty": "prettier --config .prettierrc 'src/*.ts' 'JsonFiles/*.json' --write"
     },
     "author": "",
     "license": "ISC",
