@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import https from 'https';
 import { SonosDevice } from './SonosResponseModel';
 import fs from 'fs';
@@ -30,6 +30,9 @@ export class DeviceDetailsHelper {
                         console.log(`${JSON.stringify(err)}`);
                     }
                 });
+            })
+            .catch((error: AxiosError) => {
+                console.error(error.message);
             });
     }
 
