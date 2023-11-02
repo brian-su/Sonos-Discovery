@@ -22,6 +22,7 @@ export class DeviceDetailsHelper {
                 httpsAgent: new https.Agent({ rejectUnauthorized: false })
             })
             .then((response) => {
+                console.log(`Got ${response.data.device.modelDisplayName} (${this.ip})`);
                 var filename = `JSONFiles/${response.data.device.modelDisplayName} (${this.ip}).json`;
                 fs.writeFile(filename, JSON.stringify(response.data), (err) => {
                     if (err != null) {
