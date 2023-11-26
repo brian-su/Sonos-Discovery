@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios';
+import axios, { AxiosError, AxiosRequestConfig } from 'axios';
 import https from 'https';
 import { SonosDevice } from './SonosResponseModel';
 import fs from 'fs';
@@ -16,7 +16,7 @@ export class DeviceDetailsHelper {
                 var response = await axios.get<SonosDevice>(url, {
                     headers: { 'X-Sonos-Api-Key': '00000000-0000-0000-0000-000000000000' },
                     httpsAgent: new https.Agent({ rejectUnauthorized: false })
-                });
+                } as AxiosRequestConfig);
                 this.writeData(response.data, ip);
             } catch (error: any) {
                 console.error(error.message);

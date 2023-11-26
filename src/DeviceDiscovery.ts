@@ -28,7 +28,7 @@ export class DeviceDiscovery {
             console.log(`Found Devices: ${JSON.stringify(this.foundDeviceIps)}`);
             await new DeviceDetailsHelper().getDetailsForAllDevices(this.foundDeviceIps);
             console.log('GOT ALL DATA. PROGRAM FINISHED');
-        }, 5000);
+        }, 10000);
     }
 
     getModel(modelCheck: RegExpMatchArray | null): string | null {

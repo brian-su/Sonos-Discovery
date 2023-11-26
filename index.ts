@@ -1,3 +1,16 @@
+import { env } from 'process';
 import { DeviceDiscovery } from './src/DeviceDiscovery';
+import { SonosEventListener } from './src/SonosEventListener';
 
-new DeviceDiscovery().sendDiscover();
+console.log(env.mode);
+
+switch (env.mode) {
+    case 'DeviceDiscovery':
+        new DeviceDiscovery().sendDiscover();
+        break;
+    case 'EventListener':
+        new SonosEventListener();
+        break;
+    default:
+        console.log('No mode found did nothing');
+}
